@@ -28,6 +28,8 @@ dotenv.config();
 
 const app: Application = express();
 
+app.set("trust proxy", 1);
+
 const limiter = rateLimit({
   windowMs: config.rateLimit.windowMs,
   max: config.nodeEnv === "development" ? 1000 : config.rateLimit.maxRequests,
